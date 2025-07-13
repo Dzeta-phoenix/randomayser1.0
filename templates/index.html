@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <title>Stealth Randomizer</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 40px; }
+        input, button { padding: 10px; font-size: 16px; margin: 5px; }
+        .number { font-size: 48px; margin: 30px auto; }
+    </style>
+</head>
+<body>
+    <h1>🎲 Случайное число</h1>
+
+    <form method="POST">
+        <input type="number" name="min" value="{{ min_val }}" required>
+        <input type="number" name="max" value="{{ max_val }}" required>
+        <button type="submit" name="update_range">Обновить диапазон</button>
+    </form>
+
+    <form method="POST">
+        <button type="submit" name="generate">Сгенерировать число</button>
+    </form>
+
+    <div class="number">
+        {{ number if number is not none else "⏳" }}
+    </div>
+
+    <p><a href="/clear">🔁 Сбросить секрет</a></p>
+    <p><a href="/secret" target="_blank">Ввести секретное число</a></p>
+</body>
+</html>
